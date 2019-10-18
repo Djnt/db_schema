@@ -1,0 +1,32 @@
+<h2>Resend confirmation instructions</h2>
+
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<div style="width: 50vw;">
+  <% @tweats.each do |tweat| %>
+    <div>
+      <%= tweat[:title] %>
+    </div>
+    <div>
+      <%= tweat[:body] %>
+    </div>
+    <a href=<%= "/api/profile/#{tweat[:author]}" %>><%= tweat[:author_name] %></a>
+  <% end %>
+<div>
+
+<div style="position: absolute; top: 0px; right: 0px;">
+<%= button_to('Logout', '/users/sign_out',
+          method: "delete", remote: true) %>
+
+</div>
+
+<div style="width: 50vw; margin-top: 50px;">
+  <% @users.each do |user| %>
+    <div>
+      <%= user.email %>
+      <td><%= button_to 'Follow', {:controller => "api/follows", :action => "create", :user => user} , :method=>:post  %></td>
+    </div>
+  <% end %>
+<div>
