@@ -2,6 +2,7 @@ class Api::HomeController < ApplicationController
   before_action :authenticate_user!
   
   def index
+    respond_to :html, :json
     @users = User.all #filter followed users & add serializer
     order = ["ASC", "DESC"].include?(params[:order]) ? params[:order] : "ASC"
     # add scope

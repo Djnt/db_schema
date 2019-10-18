@@ -26,7 +26,7 @@
   <% @users.each do |user| %>
     <div>
       <%= user.email %>
-      <td><%= button_to 'Follow', {:controller => "api/follows", :action => "create", :user => user} , :method=>:post  %></td>
+      <td><%= button_to 'Follow', api_follow_url, :params => {user: user}  %></td>
     </div>
   <% end %>
 <div>

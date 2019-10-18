@@ -2,6 +2,7 @@ class Api::ProfileController < ApplicationController
     before_action :authenticate_user!
     
     def show
+      respond_to :html, :json
       user = User.find(params[:id])
       # add scopes
       followers = User.where("id IN (SELECT user_id from follows where follows.target = #{user.id})")
