@@ -10,6 +10,12 @@ class Api::ProfileController < ApplicationController
       tweats = user.tweats
       render json: {email: user.email, followers: followers, follows: follows, tweats: user.tweats}
     end
+
+    #TEST1
+    def
+      qqqqqsssssssssssqweeqweqweqwe = 2
+      asssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssddddddddddddddxxxxxxxxxxxxx = 4324234234234
+    end
   
 end
   
