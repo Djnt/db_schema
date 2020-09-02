@@ -36,4 +36,19 @@ class Api::HomeController < ApplicationController
     tweats = user.tweats
     render json: {email: user.email, followers: followers, follows: follows, tweats: user.tweats}
   end
+
+  #chunk from test project
+  def index
+    render_api(articles, :ok, each_serializer: ArticlesSerializer)
+  end
+
+  def create
+    article = current_workspace.articles.create(article_params)
+    render_api(article, :created)
+  end
+
+  def update
+    article.update(article_params)
+    render_api(article, :accepted)
+  end
 end
